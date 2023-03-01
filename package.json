@@ -1,9 +1,9 @@
 {
-  "name": "@openimis/fe-cmr-cs",
+  "name": "@openimis/fe-csu",
   "version": "0.1.0",
   "license": "AGPL-3.0-only",
-  "description": "Module Cheque Santé OpenImis",
-  "repository": "mngoe/openimis-fe-cmr-cs",
+  "description": "Module CSU OpenImis",
+  "repository": "mngoe/openimis-fe-csu",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "engines": {

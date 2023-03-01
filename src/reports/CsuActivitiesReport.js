@@ -4,7 +4,7 @@ import React from "react";
 
 import { useSelector } from "react-redux";
 
-const ChequeSanteActivitiesReport = (props) => {
+const CsuActivitiesReport = (props) => {
   const { values, setValues } = props;
   const userHealthFacility = useSelector((state) => state.loc.userHealthFacilityFullPath);
 
@@ -30,9 +30,9 @@ const ChequeSanteActivitiesReport = (props) => {
         <PublishedComponent
           pubRef="core.DatePicker"
           value={values.dateFrom}
-          module="CmrCs"
+          module="Csu"
           required
-          label="cmr_cs.dateFrom"
+          label="csu.dateFrom"
           onChange={(dateFrom) => setValues({ ...values, dateFrom })}
         />
       </Grid>
@@ -40,9 +40,9 @@ const ChequeSanteActivitiesReport = (props) => {
         <PublishedComponent
           pubRef="core.DatePicker"
           value={values.dateTo}
-          module="CmrCs"
+          module="Csu"
           required
-          label="cmr_cs.dateTo"
+          label="csu.dateTo"
           onChange={(dateTo) => setValues({ ...values, dateTo })}
         />
       </Grid>
@@ -51,4 +51,4 @@ const ChequeSanteActivitiesReport = (props) => {
 };
 
 
-export default ChequeSanteActivitiesReport;
+export default CsuActivitiesReport;
