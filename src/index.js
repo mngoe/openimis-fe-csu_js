@@ -17,6 +17,16 @@ const DEFAULT_CONFIG = {
         hflocation: values.hflocation?.code ? values.hflocation.code : 0
       })
     },
+    {
+      key: "invoice_hiv",
+      component: CsuActivitiesReport,
+      isValid: (values) => values.dateFrom && values.dateTo,
+      getParams: (values) => ({
+        date_from: values.dateFrom,
+        date_to: values.dateTo,
+        hflocation: values.hflocation?.code ? values.hflocation.code : 0
+      })
+    },
   ],
 }
 
