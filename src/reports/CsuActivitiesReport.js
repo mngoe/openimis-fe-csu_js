@@ -1,7 +1,7 @@
 import { Grid } from "@material-ui/core";
 import { PublishedComponent } from "@openimis/fe-core";
 import React from "react";
-
+import { injectIntl } from "react-intl";
 import { useSelector } from "react-redux";
 
 const CsuActivitiesReport = (props) => {
@@ -51,4 +51,4 @@ const CsuActivitiesReport = (props) => {
 };
 
 
-export default CsuActivitiesReport;
+export default injectIntl(CsuActivitiesReport);
