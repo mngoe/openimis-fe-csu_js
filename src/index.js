@@ -1,10 +1,12 @@
 import messages_en from "./translations/en.json";
+import messages_fr from "./translations/fr.json"
 import CsuActivitiesReport from "./reports/CsuActivitiesReport";
 
 
 const DEFAULT_CONFIG = {
   "translations": [
     { key: "en", messages: messages_en },
+    {key : "fr", messages: messages_fr}
   ],
   "reports": [
     {
