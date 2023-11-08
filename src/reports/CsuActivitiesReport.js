@@ -28,6 +28,7 @@ const CsuActivitiesReport = (props) => {
         <PublishedComponent
           pubRef="location.DistrictPicker"
           healtfacilityDistrict={values.hflocation}
+          required
           value={values.district}
           withNull={true}
           onChange={((district)=>{ setValues({...values, district})})}
