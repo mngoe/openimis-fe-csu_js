@@ -8,20 +8,38 @@ const CsuActivitiesReport = (props) => {
   const { values, setValues } = props;
   const userHealthFacility = useSelector((state) => state.loc.userHealthFacilityFullPath);
 
-  if(userHealthFacility?.code){
+  if (userHealthFacility?.code) {
     values.hflocation = userHealthFacility
   };
+
+  const onHealtFacilityChange = (hflocation)=>{
+    if(!values.district || values.district==null){
+      let District = hflocation.location
+      setValues({...values, hflocation, district:District})
+    }else{
+      setValues({...values, hflocation})
+    }
+    
+  }
   console.log(values);
   return (
     <Grid container direction="column" spacing={1}>
       <Grid item>
         <PublishedComponent
+          pubRef="location.DistrictPicker"
+          healtfacilityDistrict={values.hflocation}
+          required
+          value={values.district}
+          withNull={true}
+          onChange={((district)=>{ setValues({...values, district})})}
+        />
+      </Grid>
+      <Grid item>
+        <PublishedComponent
           pubRef="location.HealthFacilityPicker"
+          district={values.district}
           onChange={(hflocation) =>
-            setValues({
-              ...values,
-              hflocation,
-            })
+            onHealtFacilityChange(hflocation)
           }
           value={userHealthFacility?.code ? userHealthFacility.code : values.hflocation}
         />
