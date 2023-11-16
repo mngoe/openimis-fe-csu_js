@@ -31,6 +31,16 @@ const DEFAULT_CONFIG = {
         district: values.district?.district ? values.district.code : 0
       })
     },
+    {
+      key: "payment_status_birth_certificate",
+      component: CsuActivitiesReport,
+      isValid: (values) => values.dateFrom && values.dateTo && values.hflocation,
+      getParams: (values) => ({
+        date_from: values.dateFrom,
+        date_to: values.dateTo,
+        hflocation: values.hflocation?.code ? values.hflocation.code : 0
+      })
+    },
   ],
 }
 
