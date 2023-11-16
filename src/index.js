@@ -1,6 +1,7 @@
 import messages_en from "./translations/en.json";
 import messages_fr from "./translations/fr.json"
 import CsuActivitiesReport from "./reports/CsuActivitiesReport";
+import CsuBirthPaymentStatusReport from "./reports/CsuBirthPaymentStatusReport"
 
 
 const DEFAULT_CONFIG = {
@@ -33,7 +34,7 @@ const DEFAULT_CONFIG = {
     },
     {
       key: "payment_status_birth_certificate",
-      component: CsuActivitiesReport,
+      component: CsuBirthPaymentStatusReport,
       isValid: (values) => values.dateFrom && values.dateTo && values.hflocation,
       getParams: (values) => ({
         date_from: values.dateFrom,
