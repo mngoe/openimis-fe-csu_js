@@ -2,6 +2,7 @@ import messages_en from "./translations/en.json";
 import messages_fr from "./translations/fr.json"
 import CsuActivitiesReport from "./reports/CsuActivitiesReport";
 import CsuBirthPaymentStatusReport from "./reports/CsuBirthPaymentStatusReport"
+import CsuStateDiscritPaymentReport from "./reports/CsuStateDiscritPaymentReport";
 
 
 const DEFAULT_CONFIG = {
