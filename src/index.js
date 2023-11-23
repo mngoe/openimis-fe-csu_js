@@ -44,7 +44,7 @@ const DEFAULT_CONFIG = {
       })
     },
     {
-      key: "invoice_District_csu",
+      key: "invoice_district_csu",
       component: CsuStateDiscritPaymentReport,
       isValid: (values) => values.dateFrom && values.dateTo && values.district,
       getParams: (values) => ({
