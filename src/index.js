@@ -33,7 +33,7 @@ const DEFAULT_CONFIG = {
       })
     },
     {
-      key: "payment_status_birth_certificate",
+      key: "invoice_fosa_DNBD",
       component: CsuBirthPaymentStatusReport,
       isValid: (values) => values.dateFrom && values.dateTo && values.hflocation,
       getParams: (values) => ({
