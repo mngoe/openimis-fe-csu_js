@@ -4,7 +4,7 @@ import React from "react";
 import { injectIntl } from "react-intl";
 import { useSelector } from "react-redux";
 
-const CsuActivitiesReport = (props) => {
+const CsuStateDiscritPaymentReport = (props) => {
   const { values, setValues } = props;
   const userHealthFacility = useSelector((state) => state.loc.userHealthFacilityFullPath);
 
@@ -12,22 +12,20 @@ const CsuActivitiesReport = (props) => {
     values.hflocation = userHealthFacility
   };
 
-  const onHealtFacilityChange = (hflocation)=>{
-      setValues({...values, hflocation})
-  }
   console.log(values);
   return (
     <Grid container direction="column" spacing={1}>
       <Grid item>
         <PublishedComponent
-          pubRef="location.HealthFacilityPicker"
-          district={values.district}
-          onChange={(hflocation) =>
-            onHealtFacilityChange(hflocation)
-          }
-          value={userHealthFacility?.code ? userHealthFacility.code : values.hflocation}
+          pubRef="location.DistrictPicker"
+          healtfacilityDistrict={values.hflocation}
+          required
+          value={values.district}
+          withNull={true}
+          onChange={((district)=>{ setValues({...values, district})})}
         />
       </Grid>
+     
       <Grid item>
         <PublishedComponent
           pubRef="core.DatePicker"
@@ -53,4 +51,4 @@ const CsuActivitiesReport = (props) => {
 };
 
 
-export default injectIntl(CsuActivitiesReport);
+export default injectIntl(CsuStateDiscritPaymentReport);
