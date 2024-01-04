@@ -50,8 +50,7 @@ const DEFAULT_CONFIG = {
       getParams: (values) => ({
         date_from: values.dateFrom,
         date_to: values.dateTo,
-        hflocation: values.hflocation?.code ? values.hflocation.code : 0,
-        district: values.district?.district ? values.district.code : 0
+        district: values.district? values.district.code : 0
       })
     },
   ],

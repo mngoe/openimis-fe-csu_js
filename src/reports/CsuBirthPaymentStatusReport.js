@@ -12,8 +12,8 @@ const CsuBirthPaymentStatusReport = (props) => {
     values.hflocation = userHealthFacility
   };
 
-  const onHealtFacilityChange = (hflocation)=>{
-    setValues({...values, hflocation})
+  const onHealtFacilityChange = (hflocation) => {
+    setValues({ ...values, hflocation })
   }
   console.log(values);
   return (
@@ -31,7 +31,7 @@ const CsuBirthPaymentStatusReport = (props) => {
       </Grid>
       <Grid item>
         <PublishedComponent
-          pubRef="core.MonthYearPicker"
+          pubRef="core.DatePicker"
           value={values.dateFrom}
           module="Csu"
           required
@@ -41,14 +41,12 @@ const CsuBirthPaymentStatusReport = (props) => {
       </Grid>
       <Grid item>
         <PublishedComponent
-          pubRef="core.MonthYearPicker"
+          pubRef="core.DatePicker"
           value={values.dateTo}
           module="Csu"
           required
           label="csu.dateTo"
           onChange={(dateTo) => setValues({ ...values, dateTo })}
-          min={2010}
-          max={2040}
         />
       </Grid>
     </Grid>

@@ -22,13 +22,13 @@ const CsuStateDiscritPaymentReport = (props) => {
           required
           value={values.district}
           withNull={true}
-          onChange={((district)=>{ setValues({...values, district})})}
+          onChange={((district) => { setValues({ ...values, district }) })}
         />
       </Grid>
-     
+
       <Grid item>
         <PublishedComponent
-          pubRef="core.DatePicker"
+          pubRef="core.MonthYearPicker"
           value={values.dateFrom}
           module="Csu"
           required
@@ -38,12 +38,14 @@ const CsuStateDiscritPaymentReport = (props) => {
       </Grid>
       <Grid item>
         <PublishedComponent
-          pubRef="core.DatePicker"
+          pubRef="core.MonthYearPicker"
           value={values.dateTo}
           module="Csu"
           required
           label="csu.dateTo"
           onChange={(dateTo) => setValues({ ...values, dateTo })}
+          min={2010}
+          max={2040}
         />
       </Grid>
     </Grid>
