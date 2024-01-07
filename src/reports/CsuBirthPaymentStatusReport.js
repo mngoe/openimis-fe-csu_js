@@ -30,25 +30,24 @@ const CsuBirthPaymentStatusReport = (props) => {
         />
       </Grid>
       <Grid item>
-        <PublishedComponent
-          pubRef="core.MonthYearPicker"
+      <PublishedComponent
+          pubRef="core.DatePicker"
           value={values.dateFrom}
           module="Csu"
           required
           label="csu.dateFrom"
           onChange={(dateFrom) => setValues({ ...values, dateFrom })}
         />
+       
       </Grid>
       <Grid item>
-        <PublishedComponent
-          pubRef="core.MonthYearPicker"
+      <PublishedComponent
+          pubRef="core.DatePicker"
           value={values.dateTo}
           module="Csu"
           required
           label="csu.dateTo"
           onChange={(dateTo) => setValues({ ...values, dateTo })}
-          min={2010}
-          max={2040}
         />
       </Grid>
     </Grid>
