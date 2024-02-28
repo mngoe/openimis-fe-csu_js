@@ -3,6 +3,7 @@ import messages_fr from "./translations/fr.json"
 import CsuActivitiesReport from "./reports/CsuActivitiesReport";
 import CsuBirthPaymentStatusReport from "./reports/CsuBirthPaymentStatusReport"
 import CsuStateDiscritPaymentReport from "./reports/CsuStateDiscritPaymentReport";
+import CsuFagepReport from "./reports/CsuFagepReport";
 
 
 const DEFAULT_CONFIG = {
@@ -53,6 +54,17 @@ const DEFAULT_CONFIG = {
         district: values.district? values.district.code : 0
       })
     },
+    {
+      key: "invoice_fosa_FAGEP",
+      component: CsuFagepReport,
+      isValid: (values) => values.dateFrom && values.dateTo,
+      getParams: (values) => ({
+        date_from: values.dateFrom,
+        date_to: values.dateTo,
+        hflocation: values.hflocation?.code ? values.hflocation.code : 0,
+        district: values.district?.district ? values.district.code : 0
+      })
+    }
   ],
 }
 
