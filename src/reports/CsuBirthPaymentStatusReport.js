@@ -12,8 +12,8 @@ const CsuBirthPaymentStatusReport = (props) => {
     values.hflocation = userHealthFacility
   };
 
-  const onHealtFacilityChange = (hflocation)=>{
-    setValues({...values, hflocation})
+  const onHealtFacilityChange = (hflocation) => {
+    setValues({ ...values, hflocation })
   }
   console.log(values);
   return (

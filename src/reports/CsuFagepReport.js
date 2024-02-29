@@ -4,7 +4,7 @@ import React from "react";
 import { injectIntl } from "react-intl";
 import { useSelector } from "react-redux";
 
-const CsuStateDiscritPaymentReport = (props) => {
+const CsuFagepReport = (props) => {
   const { values, setValues } = props;
   const userHealthFacility = useSelector((state) => state.loc.userHealthFacilityFullPath);
 
@@ -12,23 +12,25 @@ const CsuStateDiscritPaymentReport = (props) => {
     values.hflocation = userHealthFacility
   };
 
+  const onHealtFacilityChange = (hflocation)=>{
+      setValues({...values, hflocation})
+  }
   console.log(values);
   return (
     <Grid container direction="column" spacing={1}>
       <Grid item>
         <PublishedComponent
-          pubRef="location.DistrictPicker"
-          healtfacilityDistrict={values.hflocation}
-          required
-          value={values.district}
-          withNull={true}
-          onChange={((district) => { setValues({ ...values, district }) })}
+          pubRef="location.HealthFacilityPicker"
+          district={values.district}
+          onChange={(hflocation) =>
+            onHealtFacilityChange(hflocation)
+          }
+          value={userHealthFacility?.code ? userHealthFacility.code : values.hflocation}
         />
       </Grid>
-
       <Grid item>
         <PublishedComponent
-          pubRef="core.MonthYearPicker"
+          pubRef="core.DatePicker"
           value={values.dateFrom}
           module="Csu"
           required
@@ -38,14 +40,12 @@ const CsuStateDiscritPaymentReport = (props) => {
       </Grid>
       <Grid item>
         <PublishedComponent
-          pubRef="core.MonthYearPicker"
+          pubRef="core.DatePicker"
           value={values.dateTo}
           module="Csu"
           required
           label="csu.dateTo"
           onChange={(dateTo) => setValues({ ...values, dateTo })}
-          min={2010}
-          max={2040}
         />
       </Grid>
     </Grid>
@@ -53,4 +53,4 @@ const CsuStateDiscritPaymentReport = (props) => {
 };
 
 
-export default injectIntl(CsuStateDiscritPaymentReport);
+export default injectIntl(CsuFagepReport);
