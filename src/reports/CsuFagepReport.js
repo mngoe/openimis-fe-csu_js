@@ -13,10 +13,11 @@ const CsuFagepReport = (props) => {
     if (userHealthFacility?.code) {
       setValues({
         ...values,
-        hflocation: userHealthFacility
+        hflocation: userHealthFacility,
+        district: userHealthFacility?.location
       })
     }
-  })
+  }, values)
 
   const onHealtFacilityChange = (hflocation) => {
     setValues({ ...values, hflocation })
