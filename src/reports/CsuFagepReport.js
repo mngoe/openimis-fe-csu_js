@@ -1,19 +1,25 @@
 import { Grid } from "@material-ui/core";
 import { PublishedComponent } from "@openimis/fe-core";
-import React from "react";
+import React, { useEffect } from "react";
 import { injectIntl } from "react-intl";
 import { useSelector } from "react-redux";
 
 const CsuFagepReport = (props) => {
   const { values, setValues } = props;
   const userHealthFacility = useSelector((state) => state.loc.userHealthFacilityFullPath);
+  const readOnly = !!userHealthFacility && userHealthFacility?.code;
 
-  if (userHealthFacility?.code) {
-    values.hflocation = userHealthFacility
-  };
+  useEffect(() => {
+    if (userHealthFacility?.code) {
+      setValues({
+        ...values,
+        hflocation: userHealthFacility
+      })
+    }
+  })
 
-  const onHealtFacilityChange = (hflocation)=>{
-      setValues({...values, hflocation})
+  const onHealtFacilityChange = (hflocation) => {
+    setValues({ ...values, hflocation })
   }
   console.log(values);
   return (
@@ -25,7 +31,8 @@ const CsuFagepReport = (props) => {
           onChange={(hflocation) =>
             onHealtFacilityChange(hflocation)
           }
-          value={userHealthFacility?.code ? userHealthFacility.code : values.hflocation}
+          value={values.hflocation}
+          readOnly={readOnly}
         />
       </Grid>
       <Grid item>
