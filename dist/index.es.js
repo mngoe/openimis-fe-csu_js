@@ -1,7 +1,7 @@
 import _defineProperty from '@babel/runtime/helpers/defineProperty';
 import { Grid } from '@material-ui/core';
 import { PublishedComponent } from '@openimis/fe-core';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { injectIntl } from 'react-intl';
 import { useSelector } from 'react-redux';
 
@@ -19,24 +19,19 @@ function ownKeys$4(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymb
 function _objectSpread$4(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys$4(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys$4(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 var CsuActivitiesReport = function CsuActivitiesReport(props) {
   var values = props.values,
-    setValues = props.setValues,
-    user = props.user;
+    setValues = props.setValues;
   var userHealthFacility = useSelector(function (state) {
     return state.loc.userHealthFacilityFullPath;
   });
-  var readOnly = !!userHealthFacility && (userHealthFacility === null || userHealthFacility === void 0 ? void 0 : userHealthFacility.code);
-  useEffect(function () {
-    if (userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code) {
-      setValues(_objectSpread$4(_objectSpread$4({}, values), {}, {
-        hflocation: userHealthFacility
-      }));
-    }
-  }, [user]);
+  if (userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code) {
+    values.hflocation = userHealthFacility;
+  }
   var onHealtFacilityChange = function onHealtFacilityChange(hflocation) {
     setValues(_objectSpread$4(_objectSpread$4({}, values), {}, {
       hflocation: hflocation
     }));
   };
+  console.log(values);
   return /*#__PURE__*/React.createElement(Grid, {
     container: true,
     direction: "column",
@@ -49,8 +44,7 @@ var CsuActivitiesReport = function CsuActivitiesReport(props) {
     onChange: function onChange(hflocation) {
       return onHealtFacilityChange(hflocation);
     },
-    value: values.hflocation,
-    readOnly: readOnly
+    value: userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code ? userHealthFacility.code : values.hflocation
   })), /*#__PURE__*/React.createElement(Grid, {
     item: true
   }, /*#__PURE__*/React.createElement(PublishedComponent, {
@@ -89,19 +83,15 @@ var CsuBirthPaymentStatusReport = function CsuBirthPaymentStatusReport(props) {
   var userHealthFacility = useSelector(function (state) {
     return state.loc.userHealthFacilityFullPath;
   });
-  var readOnly = !!userHealthFacility && (userHealthFacility === null || userHealthFacility === void 0 ? void 0 : userHealthFacility.code);
-  useEffect(function () {
-    if (userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code) {
-      setValues(_objectSpread$3(_objectSpread$3({}, values), {}, {
-        hflocation: userHealthFacility
-      }));
-    }
-  });
+  if (userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code) {
+    values.hflocation = userHealthFacility;
+  }
   var onHealtFacilityChange = function onHealtFacilityChange(hflocation) {
     setValues(_objectSpread$3(_objectSpread$3({}, values), {}, {
       hflocation: hflocation
     }));
   };
+  console.log(values);
   return /*#__PURE__*/React.createElement(Grid, {
     container: true,
     direction: "column",
@@ -115,8 +105,7 @@ var CsuBirthPaymentStatusReport = function CsuBirthPaymentStatusReport(props) {
       return onHealtFacilityChange(hflocation);
     },
     required: true,
-    value: values.hflocation,
-    readOnly: readOnly
+    value: userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code ? userHealthFacility.code : values.hflocation
   })), /*#__PURE__*/React.createElement(Grid, {
     item: true
   }, /*#__PURE__*/React.createElement(PublishedComponent, {
@@ -216,14 +205,9 @@ var CsuFagepReport = function CsuFagepReport(props) {
   var userHealthFacility = useSelector(function (state) {
     return state.loc.userHealthFacilityFullPath;
   });
-  var readOnly = !!userHealthFacility && (userHealthFacility === null || userHealthFacility === void 0 ? void 0 : userHealthFacility.code);
-  useEffect(function () {
-    if (userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code) {
-      setValues(_objectSpread$1(_objectSpread$1({}, values), {}, {
-        hflocation: userHealthFacility
-      }));
-    }
-  });
+  if (userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code) {
+    values.hflocation = userHealthFacility;
+  }
   var onHealtFacilityChange = function onHealtFacilityChange(hflocation) {
     setValues(_objectSpread$1(_objectSpread$1({}, values), {}, {
       hflocation: hflocation
@@ -242,8 +226,7 @@ var CsuFagepReport = function CsuFagepReport(props) {
     onChange: function onChange(hflocation) {
       return onHealtFacilityChange(hflocation);
     },
-    value: values.hflocation,
-    readOnly: readOnly
+    value: userHealthFacility !== null && userHealthFacility !== void 0 && userHealthFacility.code ? userHealthFacility.code : values.hflocation
   })), /*#__PURE__*/React.createElement(Grid, {
     item: true
   }, /*#__PURE__*/React.createElement(PublishedComponent, {
