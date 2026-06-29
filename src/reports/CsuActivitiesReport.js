@@ -16,7 +16,7 @@ const CsuActivitiesReport = (props) => {
         hflocation: userHealthFacility
       })
     }
-  }, [user]);
+  });
 
   const onHealtFacilityChange = (hflocation) => {
     setValues({ ...values, hflocation })
