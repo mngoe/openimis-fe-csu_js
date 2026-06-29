@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 const CsuActivitiesReport = (props) => {
   const { values, setValues, user } = props;
-  const userHealthFacility = useSelector((state) => state.core.user.claim_admin.healthFacility);
+  const userHealthFacility = useSelector((state) => state.loc.userHealthFacilityFullPath);
   const readOnly = !!userHealthFacility && userHealthFacility?.code;
 
   useEffect(() => {
